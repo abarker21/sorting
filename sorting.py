@@ -84,15 +84,7 @@ def merge_sorted(xs, cmp=cmp_standard):
 
     You should return a sorted version of the input list xs
     '''
-    if len(xs) <= 1:
-        return xs
-    else:
-        mid = len(xs)//2
-        left_end = xs[:mid]
-        right_end = xs[mid:]
-        merge_sorted(left_end, cmp=cmp)
-        merge_sorted(right_end, cmp=cmp)
-        return _merged(merge_sorted(left_end, cmp=cmp), merge_sorted(right_end, cmp=cmp), cmp=cmp)
+    
 
 
 def quick_sorted(xs, cmp=cmp_standard):
@@ -116,26 +108,7 @@ def quick_sorted(xs, cmp=cmp_standard):
 
     You should return a sorted version of the input list xs
     '''
-    upper = []
-    lower = []
-    pivot_v = []
-    if len(xs) <= 1:
-        return xs
-    else:
-        x = xs[0]
-        for z in xs:
-            if z > x:
-                upper.append(z)
-            elif z < x:
-                lower.append(z)
-            else:
-                pivot_v.append(z)
-        less = quick_sorted(lower, cmp=cmp)
-        greater = quick_sorted(upper, cmp=cmp)
-        if cmp == cmp_standard:
-            return less + pivot_v + greater
-        if cmp == cmp_reverse:
-            return greater + pivot_v + less
+    
 
 
 def quick_sort(xs, cmp=cmp_standard):
